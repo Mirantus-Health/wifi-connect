@@ -8,7 +8,7 @@ const getSchema = (availableNetworks: Network[]): JSONSchema => ({
 	type: 'object',
 	properties: {
 		ssid: {
-			title: 'SSID',
+			title: 'Netzwerkname',
 			type: 'string',
 			default: availableNetworks[0]?.ssid,
 			oneOf: availableNetworks.map((network) => ({
@@ -22,7 +22,7 @@ const getSchema = (availableNetworks: Network[]): JSONSchema => ({
 			default: '',
 		},
 		passphrase: {
-			title: 'Passphrase',
+			title: 'Password',
 			type: 'string',
 			default: '',
 		},
@@ -86,7 +86,7 @@ export const NetworkInfoForm = ({
 			mt={5}
 		>
 			<Heading.h3 align="center" mb={4}>
-				Hi! Please choose your WiFi from the list
+				Bitte wählen Sie ihr Wlan Netzwerk aus der Liste aus.
 			</Heading.h3>
 
 			<Form
@@ -94,7 +94,9 @@ export const NetworkInfoForm = ({
 				onFormChange={({ formData }) => {
 					setData(formData);
 				}}
-				onFormSubmit={({ formData }) => onSubmit(formData)}
+				onFormSubmit={({ formData }) => {
+					onSubmit(formData);
+				}}
 				value={data}
 				schema={getSchema(availableNetworks)}
 				uiSchema={getUiSchema(isSelectedNetworkEnterprise)}
@@ -104,7 +106,7 @@ export const NetworkInfoForm = ({
 					mt: 3,
 					disabled: availableNetworks.length <= 0,
 				}}
-				submitButtonText={'Connect'}
+				submitButtonText={'Verbinden'}
 			/>
 		</Flex>
 	);
