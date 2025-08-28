@@ -22,7 +22,7 @@ const getSchema = (availableNetworks: Network[]): JSONSchema => ({
 			default: '',
 		},
 		passphrase: {
-			title: 'Password',
+			title: 'Passwort',
 			type: 'string',
 			default: '',
 		},
@@ -86,7 +86,7 @@ export const NetworkInfoForm = ({
 			mt={5}
 		>
 			<Heading.h3 align="center" mb={4}>
-				Bitte wählen Sie ihr Wlan Netzwerk aus der Liste aus.
+				Bitte wählen Sie ihr WLAN-Netzwerk aus der Liste.
 			</Heading.h3>
 
 			<Form
